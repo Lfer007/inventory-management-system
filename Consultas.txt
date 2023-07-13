@@ -1,0 +1,6 @@
+Consultas 
+1. Realizar una consulta que permita conocer cuál es el producto que más stock tiene. 
+SELECT * FROM item ORDER BY stock DESC LIMIT 1;
+
+2. Realizar una consulta que permita conocer cuál es el producto más vendido.
+SELECT item.*, SUM(sale.quantity) AS total_vendido FROM item JOIN sale ON item.itemNumber = sale.itemNumber GROUP BY item.itemNumber ORDER BY total_vendido DESC LIMIT 1;
